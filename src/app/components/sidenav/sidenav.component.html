@@ -1,28 +1,12 @@
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
-
-      <mat-list>
-        <mat-list-item *ngFor="let user of users">
-          <img matListAvatar src="{{user.PhotoUrl}}" alt="...">
-          <h3 matLine> From </h3>
-          <p matLine>
-            <span> Subject </span>
-            <span class="demo-2"> Content </span>
-          </p>
-        </mat-list-item>
-      </mat-list>
-
-    </mat-drawer>
+<mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav 
+      #sidenav class="example-sidenav"
+      [opened]="!isScreenSmall" 
+      [mode]="isScreenSmall ? 'over' : 'side'">
+        <app-contact-list-bar></app-contact-list-bar>
+        <app-contact-list></app-contact-list>
+    </mat-sidenav>
   
     <div class="example-sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
-      </button>
     </div>
-  
-</mat-drawer-container>
+</mat-sidenav-container>

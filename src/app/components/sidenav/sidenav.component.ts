@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import userSeedData from '../../data/UserSeedData.json';
-import { User } from 'src/app/_models/user';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { SidenavService } from 'src/app/_services/sidenav.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,13 +8,17 @@ import { User } from 'src/app/_models/user';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-  isDarkTheme: boolean = false;
-  showFiller = false;
-  users: User[] = userSeedData as User[];
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  
+  public isScreenSmall: boolean = false;
 
-  constructor() { }
+  constructor(private sidenavService: SidenavService) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.sidenav);
   }
 
 }

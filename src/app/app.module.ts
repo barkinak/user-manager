@@ -11,6 +11,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContactDetailComponent } from './components/contact-detail/contact-detail.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { ContactListBarComponent } from './components/contact-list-bar/contact-list-bar.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AddContactFormComponent } from './components/add-contact-form/add-contact-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
     SidenavComponent,
     NavbarComponent,
     ContactDetailComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactListBarComponent,
+    LoginFormComponent,
+    AddContactFormComponent
   ],
   imports: [
     BrowserModule,

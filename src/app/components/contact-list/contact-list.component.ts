@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import userSeedData from '../../data/UserSeedData.json';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-contact-list',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-
+  users: User[] = userSeedData as User[];
   constructor() { }
 
   ngOnInit(): void {
