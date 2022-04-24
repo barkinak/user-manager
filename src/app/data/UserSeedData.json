@@ -1,0 +1,14 @@
+[
+    {
+        "FirstName": "Lisa",
+        "LastName": "Smith",
+        "DateOfBirth": "1956-07-22",
+        "PhotoUrl": "https://randomuser.me/api/portraits/women/54.jpg"
+    },
+    {
+        "FirstName": "Karen",
+        "LastName": "Müller",
+        "DateOfBirth": "1995-10-12",
+        "PhotoUrl": "https://randomuser.me/api/portraits/women/55.jpg"
+    }
+]
