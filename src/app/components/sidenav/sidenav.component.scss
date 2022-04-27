@@ -6,11 +6,10 @@
     min-height: 100%;
   }
   
-  .example-sidenav-content {
+  .sidenav-content {
+    margin: 50px;
     display: flex;
     height: 100%;
-    align-items: center;
-    justify-content: center;
   }
   
   .example-sidenav {

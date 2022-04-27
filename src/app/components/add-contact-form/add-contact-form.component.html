@@ -1,1 +1,29 @@
-<p>add-contact-form works!</p>
+<mat-dialog-content>
+  <form 
+    autocomplete="off"
+    class="example-form">
+    <h1 mat-dialog-title>Create User</h1>
+    
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>First name</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+    </tr></table>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button 
+    mat-button color="primary"
+    type="submit" [disabled]="!createUserForm.valid">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+</mat-dialog-actions>
