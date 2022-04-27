@@ -63,7 +63,7 @@ export class UsersService {
   // Delete user
   deleteUser(id: number): Observable<{}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.usersUrl}/${id}`;
+    const url = `${this.baseUrl}users/${id}`;
     return this.http.delete<User>(url, { headers })
       .pipe(
         tap(data => console.log('deleteUser: ' + id)),

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { MatNativeDateModule } from '@angular/material/core'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -31,7 +32,8 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

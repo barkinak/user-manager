@@ -1,6 +1,5 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/_models/user';
 import { ListService } from 'src/app/_services/list.service';
 import { UsersService } from 'src/app/_services/users.service';
@@ -11,24 +10,25 @@ import { UsersService } from 'src/app/_services/users.service';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit {
-  snapshot: any;
   userId: number;
   user: User;
-  selectedUser: User;
   errorMessage: string;
 
   constructor(
     public listService: ListService,
     private usersService: UsersService,
+    private router: Router,
     private route: ActivatedRoute) { 
-      this.snapshot = route.snapshot;
-      //this.usersService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
-    this.userId = this.snapshot.paramMap.get('id');
-    this.getUser(this.userId);
-    console.log('test');
+    const param = this.route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = +param;
+      this.getUser(id);
+    }
+
     /*
     // get user from list service
     this.listService.getUser().subscribe(user=>{
@@ -43,6 +43,27 @@ export class ContactDetailComponent implements OnInit {
     .subscribe({
       next: (user: User) => {this.user = user},
       error: err => this.errorMessage = err
+    });
+  }
+
+  deleteUser(id: number): void {
+    if (confirm(`Are you sure to delete user: ${this.user.firstname}?`)) {
+      this.usersService.deleteUser(id)
+        .subscribe({
+          next: () => {
+            this.onSaveComplete()
+          },
+          error: err => this.errorMessage = err
+        });
+    }
+    this.usersService.deleteUser(id);
+  }
+  
+  onSaveComplete(): void {
+    this.usersService.getUsers().subscribe({
+      next: () => {
+        console.log('Delete complete..');
+      }
     });
   }
 }
