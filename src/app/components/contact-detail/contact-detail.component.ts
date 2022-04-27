@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Guid } from 'guid-typescript';
 import { User } from 'src/app/_models/user';
 import { ListService } from 'src/app/_services/list.service';
 import { UsersService } from 'src/app/_services/users.service';
@@ -10,7 +11,6 @@ import { UsersService } from 'src/app/_services/users.service';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit {
-  userId: number;
   user: User;
   errorMessage: string;
 
@@ -25,20 +25,15 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
-      const id = +param;
-      this.getUser(id);
+      this.getUser(param);
     }
-
-    /*
-    // get user from list service
-    this.listService.getUser().subscribe(user=>{
-      console.log("user ---> ", user);
-      this.selectedUser = user;
-    });
-    */
   }
 
-  getUser(id: number): void {
+  editUser(): void {
+    this.router.navigateByUrl('/useredit/' + this.user.id);
+  }
+
+  getUser(id: string): void {
     this.usersService.getUserById(id)
     .subscribe({
       next: (user: User) => {this.user = user},
@@ -46,7 +41,7 @@ export class ContactDetailComponent implements OnInit {
     });
   }
 
-  deleteUser(id: number): void {
+  deleteUser(id: string): void {
     if (confirm(`Are you sure to delete user: ${this.user.firstname}?`)) {
       this.usersService.deleteUser(id)
         .subscribe({
@@ -63,6 +58,7 @@ export class ContactDetailComponent implements OnInit {
     this.usersService.getUsers().subscribe({
       next: () => {
         console.log('Delete complete..');
+        this.router.navigateByUrl('/userdetail/');
       }
     });
   }

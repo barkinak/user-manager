@@ -1,21 +1,24 @@
 <mat-dialog-content>
   <form 
+    [formGroup]="createUserForm"
+    (ngSubmit)="onSaveUser()"
     autocomplete="off"
     class="example-form">
-    <h1 mat-dialog-title>Create User</h1>
     
+    <h1 mat-dialog-title>Create User</h1>
+  
     <table class="example-full-width" cellspacing="0">
       <tr>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>First name</mat-label>
-            <input matInput>
+            <input matInput formControlName="firstName">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Last name</mat-label>
-            <input matInput>
+            <input matInput formControlName="lastName">
           </mat-form-field>
         </td>
       </tr>
@@ -23,7 +26,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Date of birth</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -31,16 +34,19 @@
         </td>
       </tr>
     </table>
+
+    <div class="button-group">
+      <button
+        mat-button color="primary"
+        type="submit" 
+        [disabled]="!createUserForm.valid">
+        <mat-icon>save</mat-icon> Save
+      </button>
+      <button 
+        mat-button color="primary" 
+        (click)="dismiss()">
+        <mat-icon>cancel</mat-icon> Cancel
+      </button>
+    </div>
   </form>
 </mat-dialog-content>
-
-<mat-dialog-actions>
-  <button 
-    mat-button color="primary"
-    type="submit" [disabled]="!createUserForm.valid">
-    <mat-icon>save</mat-icon> Save
-  </button>
-  <button mat-button color="primary" (click)="dismiss()">
-    <mat-icon>cancel</mat-icon> Cancel
-  </button>
-</mat-dialog-actions>

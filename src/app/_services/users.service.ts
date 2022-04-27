@@ -5,6 +5,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import userSeedData from '../data/UserSeedData.json';
 import { environment } from 'src/environments/environment';
+import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root'
@@ -40,8 +41,8 @@ export class UsersService {
   }
   
   // Get user by id
-  getUserById(id: number): Observable<User> {
-    const url = `${this.baseUrl}users/${id}`;
+  getUserById(id: string): Observable<User> {
+    const url = `${this.baseUrl}users/${id.toString()}`;
     return this.http.get<User>(url)
       .pipe(
         tap(data => console.log('getUser: ' + JSON.stringify(data))),
@@ -51,9 +52,11 @@ export class UsersService {
 
   // Add user
   createUser(user: User): Observable<User> {
+    console.log(user);
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    user.id = null as any;
-    return this.http.post<User>(this.usersUrl, user, { headers })
+    const url = `${this.baseUrl}users`;
+    console.log(url);
+    return this.http.post<User>(url, user, { headers })
       .pipe(
         tap(data => console.log('createUser: ' + JSON.stringify(data))),
         catchError(this.handleError)
@@ -61,7 +64,7 @@ export class UsersService {
   }
 
   // Delete user
-  deleteUser(id: number): Observable<{}> {
+  deleteUser(id: string): Observable<{}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `${this.baseUrl}users/${id}`;
     return this.http.delete<User>(url, { headers })
@@ -74,7 +77,7 @@ export class UsersService {
   // Edit user
   updateUser(user: User): Observable<User> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.usersUrl}/${user.id}`;
+    const url = `${this.baseUrl}users/${user.id}`;
     return this.http.put<User>(url, user, { headers })
       .pipe(
         tap(() => console.log('updateUser: ' + user.id)),
