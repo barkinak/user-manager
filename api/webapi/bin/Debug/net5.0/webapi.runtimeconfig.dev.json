@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\barki\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\barki\\.nuget\\packages"
-    ]
-  }
-}
