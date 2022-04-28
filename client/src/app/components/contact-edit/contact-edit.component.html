@@ -13,13 +13,13 @@
                     <td>
                         <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>First name</mat-label>
-                            <input matInput [(ngModel)]="user.firstname" name="firstname">
+                            <input matInput [(ngModel)]="user.firstname" name="firstname" maxlength=50 required>
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Last name</mat-label>
-                            <input matInput [(ngModel)]="user.lastname" name="lastname">
+                            <input matInput [(ngModel)]="user.lastname" name="lastname" maxlength=50 required>
                         </mat-form-field>
                     </td>
                 </tr>

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "47f1f7e2-9b94-4de1-8b21-44895515cf66",
+    "Username": "lisasmith",
+    "Password":  "password",
+    "Firstname": "Lisa",
+    "Lastname": "Smith",
+    "DateOfBirth": "1956-07-22",
+    "PhotoUrl": "https://randomuser.me/api/portraits/women/54.jpg",
+    "Description": "Dolor ut mollit sunt fugiat magna do eu et aliqua. Dolor consectetur reprehenderit irure non adipisicing ad irure sint id amet reprehenderit esse consectetur ex. Nisi sunt minim amet dolore eiusmod occaecat commodo nostrud tempor dolore velit. Fugiat labore duis nulla do officia voluptate ullamco. Velit ex ullamco cillum amet qui anim et ullamco adipisicing fugiat exercitation aliqua. Consectetur et do labore enim aliqua occaecat."
+  },
+  {
+    "Id": "5cf0e3ac-58b5-4250-9267-c1af33fec3c1",
+    "Username": "toddwilson",
+    "Password": "password",
+    "Firstname": "Todd",
+    "Lastname": "Wilson",
+    "DateOfBirth": "1985-10-12",
+    "PhotoUrl": "https://randomuser.me/api/portraits/men/90.jpg",
+    "Description": "Magna consectetur amet sint aliqua cillum proident commodo. Irure aute ad do dolore sunt aliqua sint aliqua sint. Qui eiusmod veniam qui adipisicing id incididunt non. Ad occaecat proident eiusmod ex dolor aliqua velit laboris qui cillum Lorem enim ex enim. Magna nisi duis minim deserunt."
+  },
+  {
+    "Id": "33d1e688-4746-4f5b-acc2-aeaa9fa6e904",
+    "Username": "karenwhite",
+    "Password": "password",
+    "Firstname": "Karen",
+    "Lastname": "White",
+    "DateOfBirth": "1959-01-24",
+    "PhotoUrl": "https://randomuser.me/api/portraits/women/55.jpg",
+    "Description": "Cillum elit nostrud enim laboris pariatur labore ipsum ut. Quis elit irure sint velit laboris anim Lorem laboris. Labore reprehenderit magna officia aliquip pariatur ea id id commodo. Culpa duis non ex nisi. Deserunt pariatur aliqua consequat reprehenderit sunt ex exercitation."
+  },
+  {
+    "Id": "95335883-476f-4c76-b978-b91ef05c0517",
+    "Username": "robertlawrence",
+    "Password": "password",
+    "Firstname": "Robert",
+    "Lastname": "Lawrence",
+    "DateOfBirth": "1988-06-22",
+    "PhotoUrl": "https://randomuser.me/api/portraits/men/52.jpg",
+    "Description": "Qui ipsum voluptate exercitation officia nisi velit adipisicing exercitation sint nulla do. Qui fugiat non nisi excepteur et duis elit consectetur ullamco velit fugiat. Sit do esse cupidatat quis eiusmod cupidatat."
+  }
+]
