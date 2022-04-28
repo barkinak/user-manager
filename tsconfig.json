@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "strictPropertyInitialization": false,
+    "strictNullChecks": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "baseUrl": "./",

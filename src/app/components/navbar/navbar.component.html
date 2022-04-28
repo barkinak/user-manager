@@ -7,5 +7,13 @@
     </button>
     <span>User Manager</span>
     <span class="navbar-spacer"></span>
-    <mat-slide-toggle></mat-slide-toggle>
+    <div *ngIf="(accountService.currentUser$ | async) as user">
+        <span>Welcome {{user.firstname}}</span>
+    </div>
+    <button 
+        mat-icon-button class="example-icon" 
+        aria-label="Example icon-button with menu icon"
+        (click)="logout()">
+        <mat-icon>logout</mat-icon>
+    </button>
 </mat-toolbar>

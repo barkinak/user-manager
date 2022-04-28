@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
 import { User } from 'src/app/_models/user';
 import { ListService } from 'src/app/_services/list.service';
 import { UsersService } from 'src/app/_services/users.service';
@@ -16,7 +15,6 @@ export class ContactListComponent implements OnInit {
   constructor(
     public listService: ListService,
     public usersService: UsersService) { 
-    //this.usersService.users$.pipe(take(1)).subscribe(users => this.users = users);
   }
 
   ngOnInit(): void {

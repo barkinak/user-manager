@@ -4,11 +4,13 @@ import { ContactDetailComponent } from './components/contact-detail/contact-deta
 import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent },
   { 
     path: 'home', component: SidenavComponent ,
+    canActivate: [AuthGuard],
     children: [
       { path: 'userdetail', component: ContactDetailComponent },
       { path: 'userdetail/:id', component: ContactDetailComponent},

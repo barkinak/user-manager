@@ -6,8 +6,7 @@
             <img matListAvatar src="{{user.photoUrl || './assets/user.png'}}" alt="...">
             <h3 matLine> {{user.firstname}} {{user.lastname}} </h3>
             <p matLine>
-                <span> Subject </span>
-                <span class="demo-2"> Content </span>
+                <span> {{user?.dateOfBirth | date:'mediumDate'}} </span>
             </p>
             <mat-divider></mat-divider>
         </a>

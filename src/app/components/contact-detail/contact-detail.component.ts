@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/_services/users.service';
 export class ContactDetailComponent implements OnInit {
   user: User;
   errorMessage: string;
+  selectedUserId: string;
 
   constructor(
     public listService: ListService,
@@ -24,6 +25,7 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
+      this.selectedUserId = param;
       this.getUser(param);
     }
   }
