@@ -42,7 +42,7 @@ export class AddContactFormComponent implements OnInit {
               next: x => {
                 console.log(x);
                 this.onComplete();
-                this.router.navigateByUrl('/userdetail/');
+                this.router.navigateByUrl('/home/userdetail/');
               },
               error: err => this.errorMessage = err
             });
@@ -60,7 +60,7 @@ export class AddContactFormComponent implements OnInit {
   onComplete() {
     this.usersService.getUsers().subscribe({
       next: () => {
-        this.router.navigateByUrl('/userdetail/');
+        this.router.navigateByUrl('/home/userdetail/');
       }
     });
   }

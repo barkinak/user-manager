@@ -1,6 +1,5 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Guid } from 'guid-typescript';
 import { User } from 'src/app/_models/user';
 import { ListService } from 'src/app/_services/list.service';
 import { UsersService } from 'src/app/_services/users.service';
@@ -30,7 +29,7 @@ export class ContactDetailComponent implements OnInit {
   }
 
   editUser(): void {
-    this.router.navigateByUrl('/useredit/' + this.user.id);
+    this.router.navigateByUrl('/home/useredit/' + this.user.id);
   }
 
   getUser(id: string): void {
@@ -58,7 +57,7 @@ export class ContactDetailComponent implements OnInit {
     this.usersService.getUsers().subscribe({
       next: () => {
         console.log('Delete complete..');
-        this.router.navigateByUrl('/userdetail/');
+        this.router.navigateByUrl('/home/userdetail/');
       }
     });
   }

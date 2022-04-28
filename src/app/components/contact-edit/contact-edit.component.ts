@@ -43,20 +43,20 @@ export class ContactEditComponent implements OnInit {
     .subscribe({
       next: x =>{
         this.onSaveComplete();
-        this.router.navigateByUrl('/userdetail/' + this.user.id);
+        this.router.navigateByUrl('/home/userdetail/' + this.user.id);
       }
     })
   }
 
   onCancel() {
-    this.router.navigateByUrl('/userdetail/' + this.user.id);
+    this.router.navigateByUrl('/home/userdetail/' + this.user.id);
   }
 
   onSaveComplete(): void {
     this.usersService.getUsers().subscribe({
       next: () => {
         console.log('Delete complete..');
-        this.router.navigateByUrl('/userdetail/');
+        this.router.navigateByUrl('/home/userdetail/');
       }
     });
   }

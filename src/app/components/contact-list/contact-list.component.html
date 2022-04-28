@@ -1,7 +1,7 @@
 <mat-selection-list [multiple]="false">
     <mat-list-option 
         *ngFor="let user of (usersService.users$ | async)"
-        [routerLink]="['/userdetail', user.id.toString()]">
+        [routerLink]="['/home/userdetail', user.id.toString()]">
         <a mat-list-item (click)="setSelected(user)">
             <img matListAvatar src="{{user.photoUrl || './assets/user.png'}}" alt="...">
             <h3 matLine> {{user.firstname}} {{user.lastname}} </h3>

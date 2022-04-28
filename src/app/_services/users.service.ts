@@ -5,7 +5,6 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import userSeedData from '../data/UserSeedData.json';
 import { environment } from 'src/environments/environment';
-import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root'
