@@ -20,7 +20,7 @@ export class AddContactFormComponent implements OnInit {
     private dialogRef: MatDialogRef<AddContactFormComponent>,
     private usersService: UsersService,
     private router: Router,
-    private fb: FormBuilder
+    public fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +31,22 @@ export class AddContactFormComponent implements OnInit {
     });
   }
 
+  getFirstNameErrorMessage() {
+    if (this.createUserForm.get('firstName').hasError('required'))
+      return 'First name is required';
+    if (this.createUserForm.get('firstName').hasError('maxlength'))
+      return 'First name cannot exceed 50 characters';
+    return '';
+  }
+
+  getLastNameErrorMessage() {
+    if (this.createUserForm.get('lastName').hasError('required'))
+      return 'Last name is required';
+    if (this.createUserForm.get('lastName').hasError('maxlength'))
+      return 'Last name cannot exceed 50 characters';
+    return '';
+  }
+
   onSaveUser() {
     if (this.createUserForm.valid) {
       let user: User;
@@ -38,15 +54,14 @@ export class AddContactFormComponent implements OnInit {
       user.id = Guid.create().toString();
 
       this.usersService.createUser(user)
-            .subscribe({
-              next: x => {
-                console.log(x);
-                this.onComplete();
-                this.router.navigateByUrl('/home/userdetail/');
-              },
-              error: err => this.errorMessage = err
-            });
-
+        .subscribe({
+          next: x => {
+            console.log(x);
+            this.onComplete();
+            this.router.navigateByUrl('/home/userdetail/');
+          },
+          error: err => this.errorMessage = err
+        });
     } else {
       this.errorMessage = 'Please correct validation errors.';
     }

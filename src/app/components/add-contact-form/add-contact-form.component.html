@@ -13,12 +13,14 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>First name</mat-label>
             <input matInput formControlName="firstName">
+            <mat-error *ngIf="createUserForm.controls['firstName'].invalid">{{getFirstNameErrorMessage()}}</mat-error>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Last name</mat-label>
             <input matInput formControlName="lastName">
+            <mat-error *ngIf="createUserForm.controls['lastName'].invalid">{{getLastNameErrorMessage()}}</mat-error>
           </mat-form-field>
         </td>
       </tr>
